@@ -1,0 +1,35 @@
+{
+	"name": "",
+	"description": "Test Task for Redwerk",
+	"authors": [
+		{
+			"name": "Arkadii Vodolazskyi",
+			"homepage": "https://github.com/ArkadiiVodolazskyi/"
+		}
+	],
+	"type": "project",
+	"repositories": [
+		{
+			"type": "composer",
+			"url": "https://wpackagist.org"
+		}
+	],
+	"config": {
+		"vendor-dir": "vendor",
+		"allow-plugins": {
+			"composer/installers": true
+		}
+	},
+	"require": {
+		"wpackagist-plugin/classic-widgets":"0.3"
+	},
+	"require-dev": {},
+	"extra": {
+		"installer-paths": {
+      "plugins/{$name}/": ["type:wordpress-plugin"]
+    }
+	},
+	"scripts": {
+		"post-update-cmd": "unzip db/uploads.zip -d uploads; unzip db/wordpress.zip -d db/"
+	}
+}

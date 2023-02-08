@@ -57,9 +57,9 @@ const routes = {
 	},
 }
 
-js(routes.js.main.src, routes.js.main.dest);
-babel(routes.js.babel.src, routes.js.babel.dest);
-minify(routes.js.minify.src);
+js(routes.js.main.src, routes.js.main.dest)
+	.babel(routes.js.babel.src, routes.js.babel.dest)
+	.minify(routes.js.minify.src);
 
 sass(routes.sass.src, routes.sass.dest, {
 	sassOptions: {

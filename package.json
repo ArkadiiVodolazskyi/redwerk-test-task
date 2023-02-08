@@ -8,6 +8,7 @@
     "url": "git+https://github.com/ArkadiiVodolazskyi/redwerk-test-task.git"
   },
   "scripts": {
+    "build": "npx mix --production",
     "watch": "npx mix watch"
   },
   "keywords": [],

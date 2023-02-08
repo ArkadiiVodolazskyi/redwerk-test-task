@@ -1,6 +1,6 @@
 {
-	"name": "",
-	"description": "Test Task for Redwerk",
+	"name": "arkadiivodolazskyi/redwerk-test-task",
+	"description": "Test task for Redwerk",
 	"authors": [
 		{
 			"name": "Arkadii Vodolazskyi",
@@ -21,12 +21,13 @@
 		}
 	},
 	"require": {
-		"wpackagist-plugin/classic-widgets":"0.3"
+		"wpackagist-theme/twentytwentythree": "*"
 	},
 	"require-dev": {},
 	"extra": {
 		"installer-paths": {
-      "plugins/{$name}/": ["type:wordpress-plugin"]
+      "plugins/{$name}/": ["type:wordpress-plugin"],
+			"themes/{$name}/": ["type:wordpress-theme"]
     }
 	},
 	"scripts": {

@@ -1,0 +1,38 @@
+@mixin wdot($color)
+	&::after
+		content: '.'
+		color: $color
+
+@mixin wline($color, $width: 87%)
+	position: relative
+	isolation: isolate
+	&::after
+		content: ''
+		position: absolute
+		z-index: -1
+		bottom: 0
+		right: 0
+		width: $width
+		height: 50%
+		background-color: $color
+
+@mixin arrow($direction: down)
+	width: 0
+	height: 0
+	transition: transform $tr-1
+	@if $direction == right
+		border-top: 1em solid transparent
+		border-bottom: 1em solid transparent
+		border-left: 1em solid currentColor
+	@if $direction == left
+		border-top: 1em solid transparent
+		border-bottom: 1em solid transparent
+		border-right: 1em solid currentColor
+	@if $direction == up
+		border-left: 1em solid transparent
+		border-right: 1em solid transparent
+		border-bottom: 1em solid currentColor
+	@if $direction == down
+		border-left: 1em solid transparent
+		border-right: 1em solid transparent
+		border-top: 1em solid currentColor

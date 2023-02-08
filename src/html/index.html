@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Blinding Lights</title>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.9.4/tiny-slider.css">
+	<link rel="stylesheet" href="../css/main.css">
+</head>
+<body>
+
+	@@include('./parts/header.html')
+
+	<main class="main-home">
+		<section class="intro">
+			<svg class="bg-leaf"><use href="../img/icons.svg#leaf"></use></svg>
+			<div class="wrapper">
+				<div class="content">
+					<h1>Blinding Lights</h1>
+					<p>“Blinding Lights,” the second single to The Weeknd's fourth studio album After Hours, released on November 27, 2019.</p>
+					<button class="button">
+						<span>Listen now</span>
+						<svg><use href="../img/icons.svg#apple"></use></svg>
+					</button>
+					<small>No credit cards required</small>
+				</div>
+				<a class="next-section" href="#hot-news">
+					<svg width="23" height="15"><use href="../img/icons.svg#chevron-down"></use></svg>
+				</a>
+			</div>
+		</section>
+		<section id="hot-news" class="hot-news">
+			<div class="wrapper">
+				<h3 class="section-title">Hot News</h3>
+				<h4 class="section-subtitle">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</h4>
+				<div class="cards" data-cards="news-default">
+					@@loop('./parts/cards/news-default.html', [
+						{
+							"thumbnail": "../img/news/latest-1.png",
+							"title": "Heading One",
+							"excerpt": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Venenatis elit venenatis tempus porta risus. Eu tristique vitae fames a. Bibendum duis in facilisis auctor senectus nisl vel."
+						},
+						{
+							"thumbnail": "../img/news/latest-2.png",
+							"title": "Heading Two",
+							"excerpt": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Venenatis elit venenatis tempus porta risus. Eu tristique vitae fames a. Bibendum duis in facilisis auctor senectus nisl vel."
+						},
+						{
+							"thumbnail": "../img/news/latest-3.png",
+							"title": "Heading Three",
+							"excerpt": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Venenatis elit venenatis tempus porta risus. Eu tristique vitae fames a. Bibendum duis in facilisis auctor senectus nisl vel."
+						}
+					])
+				</div>
+			</div>
+		</section>
+		<section class="merch">
+			<img class="bg-buy" src="../img/buy-now.png">
+			<div class="wrapper">
+				<h3 class="section-title">Merch</h3>
+				<h4 class="section-subtitle">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</h4>
+				<div class="slider-wrapper">
+					<ul class="cards" data-cards="merch" data-slider="merch">
+						@@loop('./parts/cards/merch.html', [
+							{
+								"title": "AFTER HOURS POSTER 001",
+								"description": 'LIMITED QUANTITIES AVAILABLE.<br><br>24" X 30"<br><br>DIGITAL ALBUM DELIVERED VIA EMAIL UPON PURCHASE.<br><br>DIGITAL DOWNLOADS NOT AVAILABLE TO CUSTOMERS OUTSIDE OF THE US.<br><br>ITEMS AVAILABLE SEPARATELY FOR PURCHASE.',
+								"thumbnail": "../img/merch/1.png"
+							},
+							{
+								"title": "AFTER HOURS POSTER 001",
+								"description": 'LIMITED QUANTITIES AVAILABLE.<br><br>24" X 30"<br><br>DIGITAL ALBUM DELIVERED VIA EMAIL UPON PURCHASE.<br><br>DIGITAL DOWNLOADS NOT AVAILABLE TO CUSTOMERS OUTSIDE OF THE US.<br><br>ITEMS AVAILABLE SEPARATELY FOR PURCHASE.',
+								"thumbnail": "../img/merch/1.png"
+							},
+							{
+								"title": "AFTER HOURS POSTER 001",
+								"description": 'LIMITED QUANTITIES AVAILABLE.<br><br>24" X 30"<br><br>DIGITAL ALBUM DELIVERED VIA EMAIL UPON PURCHASE.<br><br>DIGITAL DOWNLOADS NOT AVAILABLE TO CUSTOMERS OUTSIDE OF THE US.<br><br>ITEMS AVAILABLE SEPARATELY FOR PURCHASE.',
+								"thumbnail": "../img/merch/1.png"
+							},
+						])
+					</ul>
+					<div class="slider-controls">
+						<ul class="slider-dots">
+							<li></li>
+							<li></li>
+							<li></li>
+						</ul>
+						<div class="slider-buttons">
+							<button data-controls="prev"></button>
+							<button data-controls="next"></button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		<section class="clients">
+			<div class="wrapper">
+				<h3 class="section-title">Clients</h3>
+				<div class="cards" data-cards="clients">
+					@@loop('./parts/cards/client.html', [
+						{
+							"thumbnail": "../img/clients/somesuch.png",
+							"title": "Somesuch"
+						},
+						{
+							"thumbnail": "../img/clients/electric-lady-studios.png",
+							"title": "Electric Lady Studios"
+						},
+						{
+							"thumbnail": "../img/clients/mathematic.png",
+							"title": "Mathematic"
+						},
+						{
+							"thumbnail": "../img/clients/republic-records.png",
+							"title": "Republic Records"
+						},
+						{
+							"thumbnail": "../img/clients/ubem.png",
+							"title": "Ubem"
+						},
+						{
+							"thumbnail": "../img/clients/kobalt.png",
+							"title": "Kobalt"
+						}
+					])
+				</div>
+			</div>
+		</section>
+		<section class="about-us">
+			<div class="wrapper">
+				<h3 class="section-title">About Us</h3>
+				<div class="info">
+					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Porttitor cras a, id accumsan. Ac feugiat sapien ornare tristique eget eget ornare. Egestas tristique eget quam molestie platea urna commodo quisque a. Commodo diam at pharetra eget pretium proin euismod id velit. Sed eu diam morbi consectetur faucibus hac id ut. Odio risus arcu, sapien vitae porttitor vitae neque, fermentum. Adipiscing ut sit massa, lobortis vel.</p>
+					<p>Proin proin magnis pharetra tristique. Amet, tellus turpis dui ut massa cursus in donec. Morbi venenatis dictum velit, sit ipsum tristique. Ornare tempor ipsum amet eget. Ornare consectetur arcu euismod ac. Non amet diam et ullamcorper ac pellentesque mauris aliquam. Pellentesque egestas in consequat, eget arcu mattis. </p>
+				</div>
+			</div>
+		</section>
+	</main>
+
+	@@include('./parts/footer.html')
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.9.2/min/tiny-slider.js"></script>
+	<script type="module" src="../js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,119 @@
+section.intro
+	padding: em(263px) 0 em(207px)
+	background-color: $col-accent
+	overflow: hidden
+	.bg-leaf
+		color: $col-base-dark-2
+		opacity: 0.05
+		position: absolute
+		z-index: -1
+		top: 0
+		right: 0
+		height: 125%
+		aspect-ratio: 1
+	.content
+		max-width: 930px
+	h1
+		font-size: em(96px)
+	h2
+		font-size: em(60px)
+	p
+		margin-top: em(36px)
+		font-size: em(32px)
+	.button
+		margin-top: em(52px)
+		font-size: max(1em, 16px)
+		svg
+			width: em(26px)
+			height: em(30px)
+	small
+		display: block
+		margin-top: 26px
+		margin-left: 30px
+	.next-section
+		position: absolute
+		bottom: em(108px)
+		left: 50%
+		transform: translate(-50%, 0)
+		&:hover
+			color: $col-base-dark-1
+
+section.posts
+	padding-bottom: em(117px)
+	.cards
+		margin-top: em(75px)
+
+section.slider-section
+	padding-bottom: em(64px)
+	background-color: $col-base-dark-2
+	.bg-buy
+		position: absolute
+		z-index: -1
+		top: 50%
+		left: 0
+		right: 0
+		transform: translate(0, -50%)
+	.section-title
+		@include wdot($col-base-light-1)
+	.slider-wrapper
+		max-width: 970px
+		margin-top: em(55px)
+	.slider-controls
+		margin-top: em(50px)
+
+section.clients
+	padding-bottom: em(110px)
+	background-color: #2E3336
+	.cards
+		margin-top: em(102px)
+
+section.about-us
+	padding-bottom: em(97px)
+	.wrapper
+		display: grid
+		grid-template-columns: 200px 1fr
+		gap: em(163px)
+	.info
+		font-size: em(32px)
+		color: $col-base-light-2
+
+section.news
+	background-color: $col-base-dark-2
+	padding: em(50px) 0 em(80px)
+	.wrapper
+		display: flex
+		justify-content: center
+		gap: em(30px)
+	main
+		flex: 1 1 57%
+		max-width: max(57%, em(810px))
+		.cards
+			margin-top: em(40px)
+		.pagination
+			margin-top: em(32px)
+	aside
+		flex: 1 1 40%
+
+section.news-aside
+	padding-top: 0
+	&:not(:first-child)
+		margin-top: em(80px)
+	.section-title
+		@include wline($col-accent, 59%)
+		color: inherit
+		width: max-content
+		max-width: 100%
+		font-size: em(36px)
+		&::after
+			transform: translate(50%, 0)
+	.cards
+		margin-top: em(16px)
+
+
+
+
+
+
+
+
+

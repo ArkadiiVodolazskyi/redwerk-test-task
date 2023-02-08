@@ -1,0 +1,305 @@
+.wrapper
+	max-width: min($wrapper-xl, 90%)
+	margin: 0 auto
+.main-home .wrapper
+	max-width: min($wrapper-home-xl, 90%)
+
+.nav-menu
+	display: flex
+	align-items: center
+	gap: em(14px)
+	font-weight: bold
+	a
+		padding: em(14px) em(46px)
+	a
+		border: 1px solid $tsp
+		@media (min-width: 1025px)
+			&:hover
+				border-color: $col-base-dark-1
+
+.hamburger
+	line-height: 1
+	&:hover
+		color: $col-base-dark-3
+	&::after
+		content: '☰'
+		font-size: 36px
+		transition: color $tr-1
+
+.dropdown
+	position: relative
+	.dropdown-main
+		display: inline-flex
+		align-items: center
+		&::after
+			@include arrow()
+			content: ''
+			font-size: 0.45em
+			color: $col-base-light-1
+			margin-left: 2em
+	.dropdown-list
+		width: 100%
+		transition: opacity $tr-1, max-height $tr-1
+		opacity: 0
+		visibility: hidden
+		@media (min-width: 1025px)
+			position: absolute
+			top: 100%
+			left: 0
+		li
+			width: 100%
+		a
+			width: 100%
+			font-weight: 400
+			background-color: $col-base-dark-1
+			&:hover
+				color: $col-accent
+				background-color: lighten($col-base-dark-1, 5%)
+	@media (min-width: 1025px)
+		&:hover
+			.dropdown-list
+				opacity: 1
+				visibility: visible
+			.dropdown-main::after
+				transform: rotate(180deg)
+	@media (max-width: 1024px)
+		.dropdown-list
+			max-height: 0
+		&[show-dropdown]
+			.dropdown-list
+				max-height: 500px
+				opacity: 1
+				visibility: visible
+			.dropdown-main::after
+				transform: rotate(180deg)
+
+.search
+	position: relative
+	display: inline-flex
+	align-items: center
+	gap: 1em
+	&[data-active] .search-field
+		opacity: 1
+		visibility: visible
+		padding: 0.8em 1.2em
+	.search-field
+		width: em(341px)
+		background-color: $col-base-dark-1
+		padding: 0.8em 0
+		border-color: $tsp
+		border-radius: em(50px)
+		color: inherit
+		outline-color: $col-accent
+		opacity: 0
+		visibility: hidden
+		transition: all $tr-1
+		@media (min-width: 1025px)
+			position: absolute
+			z-index: 10
+			right: 100%
+			top: 50%
+			transform: translate(0, -50%)
+		&::placeholder
+			opacity: 1
+	.search-button
+		flex-shrink: 0
+		&:hover
+			color: $col-base-dark-1
+
+.thumbnail-wrapper
+	text-align: center
+	overflow: hidden
+	display: flex
+
+.button
+	gap: em(22px)
+	border-radius: 8px
+	padding: em(15px) em(34px)
+	font-size: em(24px)
+	background-color: $col-base-light-1
+	outline: 5px solid $tsp
+	color: $col-base-dark-1
+	&:hover
+		outline-color: rgba($col-base-light-1, 0.4)
+	&:focus-within
+		outline-color: rgba($col-base-light-1, 0.4)
+		background-color: #F3F3F3
+
+.section-title
+	color: $col-accent
+	font-size: em(44px)
+
+.section-subtitle
+	font-weight: 400
+	color: $col-base-light-2
+	margin-top: em(30px)
+
+.control-arrow
+	color: $col-accent
+	font-size: 1.3em
+	transition: color $tr-1
+	&:disabled, &[aria-disabled=true]
+		color: #2E0A05
+		pointer-events: none
+	&:hover
+		color: darken($col-accent, 20%)
+	&[data-controls=prev], &.prev
+		@include arrow(left)
+	&[data-controls=next], &.next
+		@include arrow(right)
+
+.slider-controls
+	display: flex
+	align-items: center
+	justify-content: space-between
+	.slider-dots
+		display: inline-flex
+		align-items: center
+		gap: .7em
+		li
+			width: 1em
+			height: 1em
+			border-radius: 50%
+			transition: border $tr-1, background-color $tr-1
+			border: 1px solid $col-base-light-1
+			&:hover, &.tns-nav-active
+				border-color: $tsp
+				background-color: $col-accent
+	.slider-buttons
+		display: inline-flex
+		align-items: center
+		gap: em(48px)
+		button
+			@extend .control-arrow
+			&[aria-disabled=true]
+				color: #421712
+
+.cards
+	&:not(&[data-cards=merch])
+		display: grid
+	&[data-cards=news-default]
+		grid-auto-columns: fit-content(em(330px))
+		grid-template-columns: repeat(3, 1fr)
+		gap: em(90px)
+		.card
+			.thumbnail-wrapper
+				aspect-ratio: 1
+				padding: em(14px)
+				background-color: $col-base-dark-3
+			.thumbnail
+				object-fit: cover
+			.info
+				padding-top: em(30px)
+			.title
+				@include wline($col-accent)
+				font-size: em(24px)
+			.excerpt
+				margin-top: em(30px)
+				color: $col-base-light-2
+	&[data-cards=merch] .card
+		padding: em(70px) 0 em(47px) em(29px)
+		background-color: $col-base-dark-1
+		display: inline-flex
+		align-items: center
+		justify-content: space-between
+		gap: em(30px)
+		text-transform: uppercase
+		> *
+			width: 50%
+		.title
+			font-size: em(24px)
+		.description
+			margin-top: em(65px)
+			color: $col-base-light-2
+		.thumbnail-wrapper
+			max-width: em(435px)
+			max-height: em(450px)
+		.thumbnail
+			width: auto
+			max-width: 100%
+			max-height: 100%
+	&[data-cards=clients]
+		grid-template-columns: repeat(3, em(210px))
+		justify-content: space-between
+		row-gap: em(100px)
+	&[data-cards=news-main] .card
+		&:not(:first-child)
+			margin-top: em(80px)
+		.thumbnail-wrapper
+			max-height: em(455px)
+		.thumbnail
+			object-fit: cover
+		.content
+			padding: em(20px) 0 0
+			display: flex
+			flex-direction: column
+			gap: em(20px)
+		.title
+			font-size: em(60px)
+		.excerpt
+			color: $col-base-light-2
+		.read-more
+			color: $col-accent
+			font-size: max(1em, 16px)
+			&:hover
+				color: darken($col-accent, 10%)
+	&[data-cards=news-aside]
+		display: grid
+		.card
+			padding: em(20px) 0
+			&:not(:first-child)
+				border-top: 1px solid $col-base-light-2
+		article
+			display: flex
+			align-items: center
+			gap: em(30px)
+		.thumbnail-wrapper
+			flex-shrink: 0
+			max-width: em(210px)
+			aspect-ratio: 1
+		.thumbnail
+			object-fit: cover
+		.title
+			font-size: em(24px)
+		.excerpt
+			margin-top: em(30px)
+			color: $col-base-light-2
+
+.breadcrumbs
+	display: flex
+	flex-wrap: wrap
+	align-items: center
+	font-size: 16px
+	padding: em(15px) 0
+	li
+		&:not(:first-of-type)::before
+			content: '—'
+			display: inline-block
+			padding: 0 0.5em
+		&:last-child a
+			pointer-events: none
+			color: $col-accent
+		a:hover
+			color: $col-accent
+
+.pagination
+	display: flex
+	align-items: center
+	justify-content: center
+	gap: 1.5em
+	.pages
+		display: flex
+		align-items: center
+		justify-content: center
+	.shift
+		@extend .control-arrow
+	.page
+		font-size: em(24px)
+		font-weight: 900
+		padding: 0.5em
+		&[data-current]
+			color: $col-accent
+			pointer-events: none
+		&:hover
+			color: $col-accent
+

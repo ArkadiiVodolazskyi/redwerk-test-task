@@ -1,0 +1,29 @@
+{
+  "name": "redwerk-test-task",
+  "version": "1.0.0",
+  "description": "Redwerk test task",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ArkadiiVodolazskyi/redwerk-test-task.git"
+  },
+  "scripts": {
+    "watch": "npx mix watch"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ArkadiiVodolazskyi/redwerk-test-task/issues"
+  },
+  "homepage": "https://github.com/ArkadiiVodolazskyi/redwerk-test-task#readme",
+  "devDependencies": {
+    "laravel-mix": "^6.0.49",
+    "resolve-url-loader": "^5.0.0",
+    "sass": "^1.58.0",
+    "sass-loader": "^12.6.0"
+  },
+  "dependencies": {
+    "laravel-mix-compress-images": "^1.0.4"
+  }
+}

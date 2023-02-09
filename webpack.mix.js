@@ -43,23 +43,27 @@ const routes = {
 	},
 	js: {
 		watch: 'src/js/*.js',
-		main: {
-			src: 'src/js/main.js',
-			dest: `${theme_assets}/js/main.js`
-		},
-		babel: {
-			src: `${theme_assets}/js/main.js`,
-			dest: `${theme_assets}/js/main.babel.js`
-		},
-		minify: {
-			src: `${theme_assets}/js/main.babel.js`
-		}
+		src: 'src/js',
+		dest: `${theme_assets}/js`
 	},
 }
 
-js(routes.js.main.src, routes.js.main.dest)
-	.babel(routes.js.babel.src, routes.js.babel.dest)
-	.minify(routes.js.minify.src);
+const scripts = [
+	'main',
+	'main-admin'
+];
+
+scripts.forEach(scriptName => {
+	js(
+		`${routes.js.src}/${scriptName}.js`,
+		`${routes.js.dest}/${scriptName}.js`
+	)
+	.babel(
+		`${routes.js.dest}/${scriptName}.js`,
+		`${routes.js.dest}/${scriptName}.babel.js`
+	)
+	.minify(`${routes.js.dest}/${scriptName}.babel.js`);
+})
 
 sass(routes.sass.src, routes.sass.dest, {
 	sassOptions: {

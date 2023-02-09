@@ -3,9 +3,9 @@
 ?>
 
 <main class="main-home">
-
-	<?php the_content(); ?>
-
+	<div class="wrapper">
+		<?php the_content(); ?>
+	</div>
 </main>
 
 <?php get_footer(); ?>

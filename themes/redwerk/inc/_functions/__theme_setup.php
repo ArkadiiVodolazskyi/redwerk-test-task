@@ -59,27 +59,19 @@ add_action( 'add_meta_boxes', 'add_media_select_meta_box' );
 function media_select_meta_box_html( $post ) {
 	wp_nonce_field( 'media_select_meta_box_nonce', 'media_select_meta_box_nonce' );
 	$value = get_post_meta( $post->ID, '_media_select', true );
-	$img_url = wp_get_attachment_image_url($value, 'full');
+	$img_url = $value ? wp_get_attachment_image_url($value, 'full') : '';
 	?>
+		<img id="media-select-image" src="<?= $img_url; ?>" alt="" style="max-width: 100%; max-height: 400px; display: block;">
 		<p>
-			<img src="<?= $img_url; ?>" alt="" style="max-width: 100%;">
-			<input type="hidden" id="media-select-field" name="media_select" value="<?php echo esc_attr( $value ); ?>" />
+			<input type="hidden" id="media-select-field" name="media_select" value="<?= esc_attr( $value ); ?>" />
 			<button type="button" class="button" id="media-select-button">Обрати зображення</button>
+			<button class="media-custom-field-remove" title="Видалити зображення">⤫</button>
 		</p>
 	<?php
 }
 
 function save_media_select_meta_box( $post_id ) {
-	$is_autosave = wp_is_post_autosave( $post_id );
-	$is_revision = wp_is_post_revision( $post_id );
-	$is_valid_nonce = ( isset( $_POST[ 'media_custom_field_nonce' ] ) && wp_verify_nonce( $_POST[ 'media_custom_field_nonce' ], basename( __FILE__ ) ) ) ? true : false;
-	if ( $is_autosave || $is_revision || ! $is_valid_nonce ) {
-		return;
-	}
 	if ( ! current_user_can( 'edit_post', $post_id ) ) {
-		return;
-	}
-	if ( ! isset( $_POST['media_select'] ) ) {
 		return;
 	}
 	update_post_meta( $post_id, '_media_select', sanitize_text_field( $_POST['media_select'] ) );

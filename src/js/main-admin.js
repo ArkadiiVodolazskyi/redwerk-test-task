@@ -1,4 +1,6 @@
 jQuery(document).ready($ => {
+	const media_select_image = $('#media-select-image');
+
 	$('#media-select-button').click(e => {
 		e.preventDefault();
 		const media_select_field = $('#media-select-field');
@@ -12,6 +14,7 @@ jQuery(document).ready($ => {
 		media_frame.on('select', () => {
 			const attachment = media_frame.state().get('selection').first().toJSON();
 			media_select_field.val(attachment.id);
+			media_select_image.attr('src', attachment.url);
 			$('.media-custom-field-remove').show();
 		});
 		media_frame.open();
@@ -20,6 +23,7 @@ jQuery(document).ready($ => {
 		e.preventDefault();
 		const media_select_field = $('#media-select-field');
 		media_select_field.val('');
+		media_select_image.attr('src', '');
 		$(this).hide();
 	});
 });

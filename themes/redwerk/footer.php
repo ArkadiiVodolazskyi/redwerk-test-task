@@ -1,13 +1,11 @@
 <footer class="footer-main">
 	<div class="wrapper">
 		<a class="logo" href="<?= get_home_url(); ?>">
-			<svg width="64" height="37">
+			<svg width="150" height="24">
 				<use href="<?= IMG_DIR; ?>/icons.svg#logo"></use>
 			</svg>
 		</a>
-		<nav>
-			<?= get_nav_menu('footer'); ?>
-		</nav>
+		<p class="copyright-text">© 2023 Redwerk - software development company.</p>
 	</div>
 </footer>
 

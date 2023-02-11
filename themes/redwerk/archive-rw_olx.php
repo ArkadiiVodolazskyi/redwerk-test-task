@@ -3,10 +3,13 @@
 <main class="main">
 	<div class="wrapper">
 
-		<ul class="breadcrumbs">
-			<li><a href="<?= get_home_url(); ?>">Головна</a></li>
-			<li><a>Публікації</a></li>
-		</ul>
+		<section class="page-info">
+			<h2 class="page-title">Публікації</h2>
+			<ul class="breadcrumbs">
+				<li><a href="<?= get_home_url(); ?>">Головна</a></li>
+				<li><a>Публікації</a></li>
+			</ul>
+		</section>
 
 		<?php
 			$ad_posts = get_posts([

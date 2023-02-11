@@ -20,12 +20,21 @@ html
 				background: darken(saturate($col-accent, 30%), 10%)
 
 body
-	background-color: $col-base-dark-1
+	background-color: darken($col-base-dark-1, 10%)
+	padding-top: var(--header-height)
+	display: flex
+	flex-direction: column
+	justify-content: space-between
+	min-height: 100vh
+
+main
+	padding-block: 30px
 
 section
-	padding-top: em(60px)
 	position: relative
 	isolation: isolate
+	&:not(:first-child)
+		margin-top: 30px
 
 ul, ol,
 h1, h2, h3, h4, h5, h6,
@@ -39,7 +48,6 @@ li
 a
 	text-decoration: none
 	display: inline-block
-	cursor: default
 	transition: color $tr-1, border-color $tr-2, background-color $tr-1, transform $tr-1
 	color: inherit
 
@@ -48,10 +56,10 @@ button
 	align-items: center
 	border: none
 	padding: 0
-	cursor: default
 	transition: background-color $tr-1, outline $tr-1
 	color: inherit
 	background: none
+	cursor: pointer
 
 img
 	width: 100%
@@ -66,3 +74,8 @@ svg
 
 small
 	font-size: max(80%, 14px)
+
+video
+	max-width: 100%
+	border-radius: 10px
+	margin: 2em 0

@@ -15,36 +15,6 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
     /***/
     function srcJsMainJs() {
       document.addEventListener('DOMContentLoaded', function () {
-        // Init slider
-        (function () {
-          var merchSliderNode = document.querySelector('[data-slider=merch]');
-          if (!merchSliderNode) {
-            return;
-          }
-          var merchSlider = tns({
-            container: merchSliderNode,
-            controlsPosition: 'bottom',
-            controlsText: ['', ''],
-            controlsContainer: '.slider-buttons',
-            navContainer: '.slider-dots',
-            mouseDrag: true,
-            swipeAngle: 30,
-            loop: false
-          });
-        })();
-
-        // Toggle search
-        (function () {
-          var searchBox = document.querySelector('.search');
-          searchBox === null || searchBox === void 0 ? void 0 : searchBox.addEventListener('click', function (e) {
-            var searchBtn = e.target.closest('.search-button');
-            if (!searchBtn) {
-              return;
-            }
-            searchBox.toggleAttribute('data-active');
-          });
-        })();
-
         // Toggle dropdown - mobile
         (function () {
           var navMenu = document.querySelector('.nav-menu');

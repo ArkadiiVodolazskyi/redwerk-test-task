@@ -1,6 +1,4 @@
 @media (max-width: 1440px)
-	section
-		padding-top: 2em
 	.section-title
 		font-size: 2.1em
 	.breadcrumbs
@@ -15,8 +13,15 @@
 
 @media (max-width: 1024px)
 	.header-main
+		nav
+			position: absolute
+			z-index: 10
+			top: 100%
+			left: 0
+			width: 100%
+			background-color: $col-base-dark-1
 		&[show-nav] nav
-			margin-top: 1em
+			padding: 1em 0
 			max-height: 500px
 			opacity: 1
 			visibility: visible
@@ -25,6 +30,8 @@
 			flex-direction: column
 			align-items: stretch
 		.top
+			height: 100%
+			align-items: center
 			padding-inline: 5%
 		.hamburger
 			display: inline-block
@@ -42,13 +49,9 @@
 				padding-inline: 5%
 				&:hover
 					background-color: $col-base-dark-1
-		.search
-			display: flex
-			padding-inline: 5%
-			.search-button
-				order: 1
-			.search-field
-				order: 2
+
+	.cards[data-cards="rw_olx"]
+		grid-template-columns: repeat(3, 1fr)
 
 @media (max-width: 768px)
 	.footer-main
@@ -57,7 +60,14 @@
 		.nav-menu a
 			padding-inline: 1em
 
+	.cards[data-cards="rw_olx"]
+		grid-template-columns: repeat(2, 1fr)
+
 @media (max-width: 480px)
+	.page-info
+		flex-direction: column
+		align-items: stretch
+
 	.footer-main
 		.wrapper
 			flex-direction: column
@@ -66,3 +76,6 @@
 		.nav-menu
 			flex-direction: column
 			gap: 0
+
+	.cards[data-cards="rw_olx"]
+		grid-template-columns: 1fr

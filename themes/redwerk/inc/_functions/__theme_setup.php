@@ -10,6 +10,7 @@ function my_child_theme_scripts() {
 }
 
 function enqueue_admin_scripts() {
+	if ( !get_post_type() === 'rw_olx') return;
 	wp_enqueue_media();
 	wp_register_script('main-admin', JS_DIR . '/main-admin.babel.min.js', ['jquery']);
 	wp_enqueue_script('main-admin');

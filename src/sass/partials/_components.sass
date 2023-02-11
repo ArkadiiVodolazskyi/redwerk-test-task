@@ -1,26 +1,28 @@
 .wrapper
 	max-width: min($wrapper-xl, 90%)
 	margin: 0 auto
-.main-home .wrapper
-	max-width: min($wrapper-home-xl, 90%)
+
+.page-info
+	display: flex
+	justify-content: space-between
+	align-items: center
+	.page-title
+		max-width: 60%
 
 .nav-menu
 	display: flex
 	align-items: center
-	gap: em(14px)
+	gap: 10px
 	font-weight: bold
 	a
-		padding: em(14px) em(46px)
-	a
-		border: 1px solid $tsp
-		@media (min-width: 1025px)
-			&:hover
-				border-color: $col-base-dark-1
+		padding: 7px 12px
+		&:hover
+			background-color: $col-base-dark-1
 
 .hamburger
 	line-height: 1
 	&:hover
-		color: $col-base-dark-3
+		color: $col-base-dark-1
 	&::after
 		content: '☰'
 		font-size: 36px
@@ -73,49 +75,16 @@
 			.dropdown-main::after
 				transform: rotate(180deg)
 
-.search
-	position: relative
-	display: inline-flex
-	align-items: center
-	gap: 1em
-	&[data-active] .search-field
-		opacity: 1
-		visibility: visible
-		padding: 0.8em 1.2em
-	.search-field
-		width: em(341px)
-		background-color: $col-base-dark-1
-		padding: 0.8em 0
-		border-color: $tsp
-		border-radius: em(50px)
-		color: inherit
-		outline-color: $col-accent
-		opacity: 0
-		visibility: hidden
-		transition: all $tr-1
-		@media (min-width: 1025px)
-			position: absolute
-			z-index: 10
-			right: 100%
-			top: 50%
-			transform: translate(0, -50%)
-		&::placeholder
-			opacity: 1
-	.search-button
-		flex-shrink: 0
-		&:hover
-			color: $col-base-dark-1
-
 .thumbnail-wrapper
 	text-align: center
 	overflow: hidden
 	display: flex
 
 .button
-	gap: em(22px)
+	gap: 22px
 	border-radius: 8px
-	padding: em(15px) em(34px)
-	font-size: em(24px)
+	padding: 15px 34px
+	font-size: 24px
 	background-color: $col-base-light-1
 	outline: 5px solid $tsp
 	color: $col-base-dark-1
@@ -127,12 +96,12 @@
 
 .section-title
 	color: $col-accent
-	font-size: em(44px)
+	font-size: 44px
 
 .section-subtitle
 	font-weight: 400
 	color: $col-base-light-2
-	margin-top: em(30px)
+	margin-top: 30px
 
 .control-arrow
 	color: $col-accent
@@ -168,108 +137,73 @@
 	.slider-buttons
 		display: inline-flex
 		align-items: center
-		gap: em(48px)
+		gap: 48px
 		button
 			@extend .control-arrow
 			&[aria-disabled=true]
 				color: #421712
 
 .cards
-	&:not(&[data-cards=merch])
-		display: grid
-	&[data-cards=news-default]
-		grid-auto-columns: fit-content(em(330px))
-		grid-template-columns: repeat(3, 1fr)
-		gap: em(90px)
+	display: grid
+	&[data-cards=rw_olx]
+		grid-auto-columns: fit-content(330px)
+		grid-template-columns: repeat(4, 1fr)
+		gap: 30px
 		.card
-			.thumbnail-wrapper
-				aspect-ratio: 1
-				padding: em(14px)
-				background-color: $col-base-dark-3
-			.thumbnail
-				object-fit: cover
-			.info
-				padding-top: em(30px)
-			.title
-				font-size: em(24px)
-			.excerpt
-				margin-top: em(30px)
-				color: $col-base-light-2
-	&[data-cards=merch] .card
-		padding: em(70px) 0 em(47px) em(29px)
-		background-color: $col-base-dark-1
-		display: inline-flex
-		align-items: center
-		justify-content: space-between
-		gap: em(30px)
-		text-transform: uppercase
-		> *
-			width: 50%
-		.title
-			font-size: em(24px)
-		.description
-			margin-top: em(65px)
-			color: $col-base-light-2
-		.thumbnail-wrapper
-			max-width: em(435px)
-			max-height: em(450px)
-		.thumbnail
-			width: auto
-			max-width: 100%
-			max-height: 100%
-	&[data-cards=clients]
-		grid-template-columns: repeat(3, em(210px))
-		justify-content: space-between
-		row-gap: em(100px)
-	&[data-cards=news-main] .card
-		&:not(:first-child)
-			margin-top: em(80px)
-		.thumbnail-wrapper
-			max-height: em(455px)
-		.thumbnail
-			object-fit: cover
-		.content
-			padding: em(20px) 0 0
 			display: flex
 			flex-direction: column
-			gap: em(20px)
-		.title
-			font-size: em(60px)
-		.excerpt
-			color: $col-base-light-2
-		.read-more
-			color: $col-accent
-			font-size: max(1em, 16px)
+			background: linear-gradient(90deg,#171923, #101114) padding-box, linear-gradient(90deg, #FFBE0B, #FF0075, #0076FF, #06D6A0) border-box
+			border: 1px solid transparent
+			border-radius: 5px
+			transition: $tr-2
+			opacity: .9
+			filter: grayscale(.25)
+			&[data-no-image]
+				justify-content: center
+				align-items: center
 			&:hover
-				color: darken($col-accent, 10%)
-	&[data-cards=news-aside]
-		display: grid
-		.card
-			padding: em(20px) 0
-			&:not(:first-child)
-				border-top: 1px solid $col-base-light-2
-		article
-			display: flex
-			align-items: center
-			gap: em(30px)
-		.thumbnail-wrapper
-			flex-shrink: 0
-			max-width: em(210px)
-			aspect-ratio: 1
-		.thumbnail
-			object-fit: cover
-		.title
-			font-size: em(24px)
-		.excerpt
-			margin-top: em(30px)
-			color: $col-base-light-2
+				scale: 1.04
+				opacity: 1
+				filter: grayscale(0)
+				.thumbnail
+					scale: 1.04
+			.thumbnail-wrapper
+				aspect-ratio: 16 / 9
+				background-color: $col-base-dark-1
+			.thumbnail
+				object-fit: cover
+				transition: $tr-3
+			.info
+				padding: 20px
+				flex-grow: 1
+				display: flex
+				flex-direction: column
+			.post-title
+				margin-bottom: 10px
+				font-size: 18px
+				display: -webkit-box
+				-webkit-line-clamp: 2
+				-webkit-box-orient: vertical
+				overflow: hidden
+			.post-categories
+				margin-top: auto
+				font-size: .8em
+				padding: 3px 0
+				display: flex
+				flex-wrap: wrap
+				gap: 5px
+			.post-category
+				display: inline-block
+				border-radius: 6px
+				background-color: $col-accent
+				padding: 1px 7px
 
 .breadcrumbs
 	display: flex
 	flex-wrap: wrap
 	align-items: center
 	font-size: 16px
-	padding: em(15px) 0
+	padding: 15px 0
 	li
 		&:not(:first-of-type)::before
 			content: '—'
@@ -293,7 +227,7 @@
 	.shift
 		@extend .control-arrow
 	.page
-		font-size: em(24px)
+		font-size: 24px
 		font-weight: 900
 		padding: 0.5em
 		&[data-current]

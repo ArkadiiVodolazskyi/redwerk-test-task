@@ -14,7 +14,7 @@
 		<div class="wrapper">
 			<div class="top">
 				<a class="logo" href="<?= get_home_url(); ?>">
-					<svg width="64" height="37">
+					<svg style="max-width: 150px; max-height: 24px;">
 						<use href="<?= IMG_DIR; ?>/icons.svg#logo"></use>
 					</svg>
 				</a>
@@ -22,14 +22,6 @@
 			</div>
 			<nav>
 				<?= get_nav_menu('header'); ?>
-				<div class="search">
-					<input class="search-field" type="search" placeholder="Search here...">
-					<button class="search-button">
-						<svg class="search-icon" width="20" height="20">
-							<use href="<?= IMG_DIR; ?>/icons.svg#search"></use>
-						</svg>
-					</button>
-				</div>
 			</nav>
 		</div>
 	</header>

@@ -57,9 +57,10 @@ function media_select_meta_box_html( $post ) {
 }
 
 function save_media_select_meta_box( $post_id ) {
-	if ( ! current_user_can( 'edit_post', $post_id ) ) {
-		return;
-	}
+	if (
+		!get_post_type() === 'rw_olx'
+		|| !metadata_exists('post', $post_id, '_media_select')
+	) return;
 	update_post_meta( $post_id, '_media_select', sanitize_text_field( $_POST['media_select'] ) );
 }
 add_action( 'save_post', 'save_media_select_meta_box' );
@@ -76,7 +77,7 @@ function send_email_on_publish( $post ) {
 	// Send to author after x minutes
 	$author_email = get_the_author_meta( 'user_email', $post->post_author );
 	wp_schedule_single_event(
-		time() + EMAIL_DELAY_MINUTES * 60,
+		current_time('timestamp', 0) + EMAIL_DELAY_MINUTES * 60,
 		'email_post_published_to',
 		[$post_id, $author_email, 'Ваш пост було опублiковано'],
 		true
@@ -86,10 +87,11 @@ add_action( 'draft_to_publish', 'send_email_on_publish' );
 
 function email_post_published_to( $post_id, $author_email, $email_subject ) {
 	$post = get_post( $post_id );
+	$post_title = $post->post_title;
 	$url = get_permalink( $post_id );
 	$change_url = get_edit_post_link( $post_id );
 	$message = "
-		Оголошення #" . $post_id . " пiд назвою \"" . $post->post_title . "\" було опублiковано на сайтi.
+		Оголошення #" . $post_id . " пiд назвою \"" . $post_title . "\" було опублiковано на сайтi.
 		Подивитися оголошення можна за посиланням: " . $url . ".
 		Внести змiни до оголошення можна тут: " . $change_url . ".
 	";

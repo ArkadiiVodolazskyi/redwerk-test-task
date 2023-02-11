@@ -57,6 +57,11 @@ function media_select_meta_box_html( $post ) {
 }
 
 function save_media_select_meta_box( $post_id ) {
+
+	// TODO: remove debug
+	mail ('aligator.cannon@gmail.com', "Test mail", "Test mail from mail");
+	wp_mail( 'aligator.cannon@gmail.com', 'Test wp_mail', 'Hello wp_mail' );
+
 	if ( ! current_user_can( 'edit_post', $post_id ) ) {
 		return;
 	}

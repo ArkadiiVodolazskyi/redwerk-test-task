@@ -15,8 +15,3 @@ add_action('phpmailer_init', function ($phpmailer) {
 
 add_filter( 'wp_mail_from', fn( $email ) => 'redwerk.local@mail.com' );
 add_filter( 'wp_mail_from_name', fn( $name ) => 'redwerk.local' );
-
-// TODO: remove test
-add_action( 'init', function () {
-	wp_mail( 'aligator.cannon@gmail.com', 'Test wp_mail', 'Hello wp_mail' );
-});

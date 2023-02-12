@@ -1,27 +1,5 @@
 # Redwerk Test Task
 
-## See on live site
-
-### http://redolx.rf.gd/
-
-[Admin panel](http://redolx.rf.gd/wp-admin):
-
-> Username: **redwerk**
-
-> Password: **redwerk**
-
-or
-
-### http://redolx.byethost11.com/
-
-[Admin panel](http://redolx.byethost11.com/wp-admin):
-
-> Username: **redwerk**
-
-> Password: **redwerk**
-
----
-
 ## Develop locally
 
 ### Get files
@@ -61,17 +39,19 @@ Requires: [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git), 
 	> Username or Email Address: **redwerk**
 	> Password: **redwerk**
 
+8. Open [Mailhog](http://localhost:8025/) to catch emails.
+
 ### Build and watch assets
 
 Requires: [NodeJS](https://nodejs.org/en/download/package-manager/), [NPM](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm/).
 
 [Laravel Mix](https://laravel-mix.com/) is used as module bundler.
 
-8. Install dependencies to run Node plugins:
+9. Install dependencies to run Node plugins:
 
 	> $ `npm install`
 
-9. Compile source files and put into theme folder:
+10. Compile source files and put into theme folder:
 
 	> $ `npm run build`
 
@@ -85,6 +65,7 @@ Requires: [NodeJS](https://nodejs.org/en/download/package-manager/), [NPM](https
 - [Composer settings](https://github.com/ArkadiiVodolazskyi/redwerk-test-task/blob/master/composer.json)
 - [NPM settings](https://github.com/ArkadiiVodolazskyi/redwerk-test-task/blob/master/package.json)
 - [Laravel Mix settings](https://github.com/ArkadiiVodolazskyi/redwerk-test-task/blob/master/webpack.mix.js)
+- Site admin email: [Settings - General](/wp-admin/options-general.php) - Administration Email Address
 - The delay of sending email to the post author:
 	- In code: [__constants.php:23](https://github.com/ArkadiiVodolazskyi/redwerk-test-task/blob/master/themes/redwerk/inc/_functions/__constants.php#L23)
 	- In admin panel: [Settings - General](/wp-admin/options-general.php) - Затримка відправки email автору оголошення [minutes]

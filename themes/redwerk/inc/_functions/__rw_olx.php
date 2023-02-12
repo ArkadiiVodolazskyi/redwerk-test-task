@@ -77,7 +77,6 @@ function send_email_on_publish( $new_status, $old_status, $post ) {
 	$admin_email = get_bloginfo('admin_email');
 	email_post_published_to( $post_id, $admin_email, 'Новий пост було опублiковано на сайтi' );
 
-	// TODO: setup CRON
 	// Send to author after x minutes
 	$author_email = get_the_author_meta( 'user_email', $post->post_author );
 	$current_time = current_time('timestamp', 0);
@@ -108,45 +107,4 @@ function email_post_published_to( $post_id, $author_email, $email_subject ) {
 		Внести змiни до оголошення можна тут: " . $change_url . ".
 	";
 	wp_mail( $author_email, $email_subject, $message );
-}
-
-// TODO: remove TEST
-
-// add_action( 'my_cronjob', 'my_cronjob_function' );
-// function my_cronjob_function($post_id, $author_email, $email_subject) {
-// 	email_post_published_to( 97, 'aligator.cannon@gmail.com', 'TEST 2 Ваш пост було опублiковано' );
-// }
-
-// add_action( 'my_cronjob', function ($post_id, $author_email, $email_subject) {
-add_action( 'my_cronjob', function () {
-	email_post_published_to( 97, 'aligator.cannon@gmail.com', 'TEST 2 Ваш пост було опублiковано' );
-} );
-
-add_action( 'init', 'test_init' );
-function test_init() {
-	wp_cron();
-
-	email_post_published_to( 97, 'aligator.cannon@gmail.com', 'TEST 1 Новий пост було опублiковано на сайтi' );
-
-	// TODO: remove
-	if (wp_next_scheduled( 'my_cronjob' )) {
-		wp_unschedule_hook( 'my_cronjob' );
-	}
-
-	$current_time = current_time('timestamp', 0);
-	$delay = EMAIL_DELAY_MINUTES * 60;
-	$scheduled_time = $current_time + $delay;
-	$scheduled_event = wp_schedule_single_event(
-		$scheduled_time,
-		'my_cronjob',
-		// array(97, 'aligator.cannon@gmail.com', 'TEST 2 Ваш пост було опублiковано'),
-		[],
-		true
-	);
-
-	if (!$scheduled_event) {
-		echo 'If scheduled event is okay: ' . "\n";
-		print_r($scheduled_event);
-		echo "\n";
-	}
 }

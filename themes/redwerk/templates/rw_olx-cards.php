@@ -10,7 +10,7 @@
 			$title = $ad_post->post_title ?: 'Без назви';
 			$url = get_permalink($id);
 			$image_id = get_post_meta( $id, '_media_select', true );
-			$image_url = wp_get_attachment_image_url($image_id, 'full');
+			$image_url = wp_get_attachment_image_url($image_id, 'medium');
 			$categories = get_the_terms($ad_post, 'rw_olx_cat');
 	?>
 		<a

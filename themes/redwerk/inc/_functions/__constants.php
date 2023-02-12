@@ -1,5 +1,6 @@
 <?php
 
+// TODO: remove
 // ini_set('display_errors', 1);
 // ini_set('display_startup_errors', 1);
 // error_reporting(E_ALL);
@@ -25,4 +26,11 @@ define('WORDPRESS_SMTP_PASSWORD', null);
 define('WORDPRESS_SMTP_FROM', 'redwerk.local@mail.com');
 define('WORDPRESS_SMTP_FROM_NAME', SITE_NAME);
 
-define("EMAIL_DELAY_MINUTES", 0.1);
+date_default_timezone_set('UTC');
+$email_delay = esc_attr(get_option('email_delay')) ?: 20;
+define("EMAIL_DELAY_MINUTES", $email_delay);
+
+// TODO: remove
+// define('WP_CRON_LOCK_TIMEOUT', 5);
+// define('DISABLE_WP_CRON', 'true');
+// define( 'ALTERNATE_WP_CRON', true );

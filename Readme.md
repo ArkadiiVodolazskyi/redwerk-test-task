@@ -4,18 +4,20 @@
 
 ### http://redolx.rf.gd/
 
-[Admin panel](redolx.rf.gd/wp-admin):
+[Admin panel](http://redolx.rf.gd/wp-admin):
 
 > Username: **redwerk**
+
 > Password: **redwerk**
 
 or
 
 ### http://redolx.byethost11.com/
 
-[Admin panel](http://redolx.byethost11.com):
+[Admin panel](http://redolx.byethost11.com/wp-admin):
 
 > Username: **redwerk**
+
 > Password: **redwerk**
 
 ---
@@ -47,6 +49,7 @@ Requires: [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git), 
 5. Log in to phpMyAdmin:
 
 	> Username: **wordpress**
+
 	> Password: **wordpress**
 
 6. Import contentful database from db/wordpress.sql intro wordpress database:

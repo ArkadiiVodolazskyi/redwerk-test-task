@@ -9,7 +9,7 @@
   },
   "scripts": {
     "build": "npx mix --production",
-    "watch": "npx mix watch"
+    "dev": "npx mix watch"
   },
   "keywords": [],
   "author": "",

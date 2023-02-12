@@ -31,6 +31,6 @@
     }
 	},
 	"scripts": {
-		"post-update-cmd": "unzip db/uploads.zip -d uploads; unzip db/wordpress.zip -d db/"
+		"post-install-cmd": "unzip db/uploads.zip -d uploads; unzip db/wordpress.zip -d db/"
 	}
 }
